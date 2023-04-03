@@ -32,7 +32,7 @@
 //	#pragma endregion*/
 //
 //	//memchr
-//	int position_w, position_x;
+//	/*int position_w, position_x;
 //	bool* storage;
 //
 //	#pragma region LetterCheck
@@ -63,10 +63,31 @@
 //		printf("№ позиции 'w' %d\n", position_w);
 //	if (position_x != INT_MAX)
 //		printf("№ позиции 'x' %d\n", position_x);
-//#pragma endregion
+//#pragma endregion*/
 //
 //	//if (storage_w < storage_x)
 //	//	printf("'w' идет раньше чем 'x'");
 //	//if (storage_x < storage_w) 
 //	//	printf("'x' идет раньше чем 'w'");
+//
+//	char* storageW;
+//	char* storageX;
+//	storageW = strchr(str_1, 'w');
+//	storageX = strchr(str_1, 'x');
+//	int positionW = (int)(storageW - str_1 + 1);
+//	int positionX = (int)(storageX - str_1 + 1);
+//	if (storageW == 0) {
+//		printf("'w' нет в строке\n");
+//		positionW = INT_MAX;
+//	}
+//	else printf("'w' есть в строке и его позиция %d\n", positionW);
+//	
+//	if (storageX == 0) {
+//		printf("'x' нет в строке\n");
+//		positionX = INT_MAX;
+//	}
+//	else printf("'x' есть в строке и его позиция %d\n", positionX);
+//
+//	if (positionW < positionX) printf("'w' рашьше\n");
+//	if (positionX < positionW) printf("'x' рашьше\n");
 //}

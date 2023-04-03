@@ -27,39 +27,35 @@ int remove_numbers(char* str, char* storageStr, int counter) {
 	}
 	storageStr[counter - numbers] = '\0';
 	printf("¬ывод строки с удаленными цифрами\n");
-	for (int i = 0; storageStr[i] != '\0'; i++)
-		printf("%c", storageStr[i]);
+	printf("%s\n", storageStr);
 	printf("\n");
 	return numbers;
 }
 
 void early_symbol(char* str, int counter) {
-	int flag_x = 0, flag_w = 0;
-	int Xposition, Wposition;
-	for (int i = 0; i < counter; i++) {
-		if (str[i] == 'x' and flag_x == 0) {
-			if (flag_x == 0)
-				Xposition = i;
-			flag_x = 1;
-		}
-		if (str[i] == 'w' and flag_w == 0) {
-			if (flag_w == 0)
-				Wposition = i;
-			flag_w = 1;
-		}
-	}
-	if (flag_x == 0) Xposition = INT_MAX;
-	if (flag_w == 0) Wposition = INT_MAX;
+	char* storageW;
+	char* storageX;
+	
+	storageW = strchr(str, 'w');
+	storageX = strchr(str, 'x');
 
-	if (Xposition < Wposition) printf("x идет раньше чем w\n");
-	if (Wposition < Xposition) printf("w идет раньше чем x\n");
+	int positionW = (int)(storageW - str + 1);
+	int positionX = (int)(storageX - str + 1);
 
-	if (flag_x == 0) {
+	if (storageX == 0) {
 		printf("x нет в массиве\n");
+		positionX = INT_MAX;
 	}
-	if (flag_w == 0) {
+	else printf("позици€ 'x': %d\n", positionX);
+	if (storageW == 0) {
 		printf("w нет в массиве\n");
+		positionW = INT_MAX;
 	}
+	else printf("позици€ 'w': %d\n", positionW);
+
+	if (positionX < positionW) printf("x идет раньше чем w\n");
+	if (positionW < positionX) printf("w идет раньше чем x\n");
+
 }
 
 void insert_two_random_symbol(char* str, char* storageStr, int counter) {
