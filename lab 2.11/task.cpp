@@ -43,19 +43,21 @@ void early_symbol(char* str, int counter) {
 	int positionX = (int)(storageX - str + 1);
 
 	if (storageX == 0) {
-		printf("x нет в массиве\n");
-		positionX = INT_MAX;
+		positionX = -1;
 	}
-	else printf("позиция 'x': %d\n", positionX);
 	if (storageW == 0) {
-		printf("w нет в массиве\n");
-		positionW = INT_MAX;
+		positionW = -1;
 	}
-	else printf("позиция 'w': %d\n", positionW);
 
-	if (positionX < positionW) printf("x идет раньше чем w\n");
-	if (positionW < positionX) printf("w идет раньше чем x\n");
+	if (positionX < positionW and positionX >= 0) printf("x идет раньше чем w\n");
+	if (positionW < positionX and positionW >= 0) printf("w идет раньше чем x\n");
 
+	if (positionX < 0) {
+		printf("x нет в массиве\n");
+	}
+	if (positionW < 0) {
+		printf("w нет в массиве\n");
+	}
 }
 
 void insert_two_random_symbol(char* str, char* storageStr, int counter) {
