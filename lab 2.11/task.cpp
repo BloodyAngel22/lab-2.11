@@ -13,18 +13,18 @@
 /*Дана строка. Вставить после каждого символа два случайных
 символа.*/
 
-void remove_numbers(char* str, char* str_2,int amount) {
+void remove_numbers(char* str_1, char* str_2,int amount) {
 	char keys[] = "1234567890";
 	char* pointer;
 	int countNumber = 0;
 	int start = 0, j = 0;
 	for (int index = 0; index < keys[index]; index++) {
 		int stringLen = 0;
-		pointer = strchr(str, keys[index]);
-		str[amount] = keys[index];
+		pointer = strchr(str_1, keys[index]);
+		str_1[amount] = keys[index];
 		if (pointer != NULL) {
 			for (start, j; start < amount; start++) {
-				if (str[start] == *pointer and pointer != NULL) {
+				if (str_1[start] == *pointer and pointer != NULL) {
 					start++;
 					countNumber++;
 					pointer = strchr(pointer + 1, keys[index]);
@@ -32,11 +32,11 @@ void remove_numbers(char* str, char* str_2,int amount) {
 						break;
 				}
 
-				if (str[start] != *pointer) {
-					str_2[j] = str[start];
+				if (str_1[start] != *pointer) {
+					str_2[j] = str_1[start];
 					j++;
 					stringLen++;
-					str[start] = NULL;
+					str_1[start] = NULL;
 				}
 			}
 			str_2[stringLen] = '\0';
@@ -44,13 +44,13 @@ void remove_numbers(char* str, char* str_2,int amount) {
 			start = 0;
 			j = 0;
 			for (int i = 0; i < amount; i++) {
-				str[i] = str_2[i];
+				str_1[i] = str_2[i];
 				str_2[i] = NULL;
 			}
 		}
-		str[amount] = '\0';
+		str_1[amount] = '\0';
 	}
-	printf("%s\n", str);
+	printf("%s\n", str_1);
 	printf("%d", countNumber);
 }
 
