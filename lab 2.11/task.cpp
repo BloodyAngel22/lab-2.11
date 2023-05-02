@@ -87,8 +87,8 @@ void insert_two_random_symbol(char* str, char* storageStr, int counter) {
 
 	for (int i = 0, j = 0; i <= counter; i += 3, j++) {
 		storageStr[i] = str[j];
-		storageStr[i + 1] = rand() % 205 + 50;
-		storageStr[i + 2] = rand() % 205 + 50;
+		storageStr[i + 1] = rand() % ('Z' - 'A' + 1) + 'A';
+		storageStr[i + 2] = rand() % ('Z' - 'A' + 1) + 'A';
 	}
 
 	printf("Вывод строки с 2 рандомными символами\n");
