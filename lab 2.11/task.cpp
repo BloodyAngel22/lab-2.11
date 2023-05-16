@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
@@ -13,43 +14,17 @@
 /*Дана строка. Вставить после каждого символа два случайных
 символа.*/
 
-void remove_numbers(char* str_1, char* str_2,int amount) {
+void remove_numbers(char* str_1, int amount) {
 	char keys[] = "1234567890";
-	char* pointer;
+	char *pointer;
 	int countNumber = 0;
-	int start = 0, j = 0;
-	for (int index = 0; index < keys[index]; index++) {
-		int stringLen = 0;
-		pointer = strchr(str_1, keys[index]);
-		str_1[amount] = keys[index];
-		if (pointer != NULL) {
-			for (start, j; start < amount; start++) {
-				if (str_1[start] == *pointer and pointer != NULL) {
-					start++;
-					countNumber++;
-					pointer = strchr(pointer + 1, keys[index]);
-					if (pointer == NULL)
-						break;
-				}
-
-				if (str_1[start] != *pointer) {
-					str_2[j] = str_1[start];
-					j++;
-					stringLen++;
-					str_1[start] = NULL;
-				}
-			}
-			str_2[stringLen] = '\0';
-			amount = strlen(str_2);
-			start = 0;
-			j = 0;
-			for (int i = 0; i < amount; i++) {
-				str_1[i] = str_2[i];
-				str_2[i] = NULL;
-			}
-		}
-		str_1[amount] = '\0';
+	
+	while (pointer = strpbrk(str_1, keys)) {
+		if (pointer = strpbrk(str_1, keys))
+			countNumber++;
+		memmove(pointer, pointer + 1, amount);
 	}
+
 	printf("%s\n", str_1);
 	printf("%d", countNumber);
 }
@@ -116,14 +91,13 @@ int main() {
 	while (getchar() != '\n');
 	gets_s(str);
 	int storage;
-	int counter = 0;
-	counter = strlen(str);
+	int counter = strlen(str);
 	str[counter] = '\0';
 
 	switch (choice_task)
 	{
 	case 1:
-		remove_numbers(str, storageStr, counter);
+		remove_numbers(str, counter);
 		break;
 
 	case 2:
