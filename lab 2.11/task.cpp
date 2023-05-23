@@ -14,19 +14,36 @@
 /*Дана строка. Вставить после каждого символа два случайных
 символа.*/
 
-void remove_numbers(char* str_1, int amount) {
+void remove_numbers(char* str_1, char* newstr) {
 	char keys[] = "1234567890";
 	char *pointer;
 	int countNumber = 0;
-	
-	while (pointer = strpbrk(str_1, keys)) {
-		if (pointer = strpbrk(str_1, keys))
-			countNumber++;
-		memmove(pointer, pointer + 1, amount);
-	}
 
-	printf("%s\n", str_1);
-	printf("%d", countNumber);
+	if (strpbrk(str_1, keys)) {
+		char* p = str_1;
+		char* q = str_1;
+
+		while (*p != NULL) {
+			q = strpbrk(p, keys);
+			int n = q - p;
+			strncat(newstr, p, n);
+			p = q + 1;
+			/*if (strpbrk(p, keys) == p) {
+				p++;
+				countNumber++;
+			}
+			else {
+				*q = *p;
+				p++;
+				q++;
+			}*/
+		}
+		//*q = '\0';
+
+		printf("%s\n", newstr);
+		printf("%d", countNumber);
+	}
+	else printf("Цифр в строке нет\n");
 }
 
 void early_symbol(char* str, int counter) {
@@ -75,6 +92,7 @@ int main() {
 	srand(time(NULL));
 	system("chcp 1251");
 	char str[100];
+	char newstr[100];
 	char storageStr[100];
 	int strNumeric[10] = {1,2,3,4,5,6,7,8,9,0};
 
@@ -97,7 +115,7 @@ int main() {
 	switch (choice_task)
 	{
 	case 1:
-		remove_numbers(str, counter);
+		remove_numbers(str, newstr);
 		break;
 
 	case 2:
