@@ -5,7 +5,6 @@
 #include <time.h>
 #include <limits.h>
 
-//Удалить из текста все цифры. Определить количество удаленных цифр.
 
 /*Дана строка. Определить, какой символ в ней встречается
 раньше: 'x' или 'w'. Если какого-то из символов нет, вывести
@@ -15,30 +14,24 @@
 символа.*/
 
 void remove_numbers(char* str_1, char* newstr) {
+//Удалить из текста все цифры. Определить количество удаленных цифр.
 	char keys[] = "1234567890";
 	char *pointer;
 	int countNumber = 0;
 
 	if (strpbrk(str_1, keys)) {
 		char* p = str_1;
-		char* q = str_1;
+		char* q = nullptr;
+		strcpy(newstr, "\0");
 
 		while (*p != NULL) {
 			q = strpbrk(p, keys);
 			int n = q - p;
 			strncat(newstr, p, n);
 			p = q + 1;
-			/*if (strpbrk(p, keys) == p) {
-				p++;
-				countNumber++;
-			}
-			else {
-				*q = *p;
-				p++;
-				q++;
-			}*/
+			if (q == NULL) break;
+			countNumber++;
 		}
-		//*q = '\0';
 
 		printf("%s\n", newstr);
 		printf("%d", countNumber);
